@@ -2,13 +2,19 @@
 #	
 	RewriteEngine on
 	
-	# Disallow acces to wp-content dir 
-	RewriteRule wp/(.*)? - [F]
+	# Disallow acces to wp dir or files
+	RewriteRule ^wp/(.*)? - [F]
 	RewriteRule ^wordpress/(.*)? - [F]
-	RewriteRule wp-content/(.*)? - [F]
-	RewriteRule ^admin/?(.*)? - [F]
-	RewriteRule administrator/?(.*)? - [F]
+	RewriteRule ^wp-content/(.*)? - [F]
+	
+	# Prevent somes bot scan
 	RewriteRule cgi-bin/?(.*)? - [F]
+	RewriteRule ^admin/?(.*)? - [F]
+	RewriteRule ^administrator/?(.*)? - [F]
+	RewriteRule ^user/?(.*)? - [F]
+	RewriteRule ^typo3/?(.*)? - [F]
+	RewriteRule ^manager/?(.*)? - [F]
+	RewriteRule ^uploadify/?(.*)? - [F]
 
 	# redirect author query string	
 	RewriteCond %{SCRIPT_FILENAME} !^(.*)wp-admin/(.*)
