@@ -8,6 +8,7 @@
 	RewriteRule wp-content/(.*)? - [F]
 	RewriteRule ^admin/?(.*)? - [F]
 	RewriteRule administrator/?(.*)? - [F]
+	RewriteRule cgi-bin/?(.*)? - [F]
 
 	# redirect author query string	
 	RewriteCond %{SCRIPT_FILENAME} !^(.*)wp-admin/(.*)
