@@ -1,0 +1,26 @@
+##	ce sont mes regles perso, pensez a les adapter ...
+#	
+	RewriteEngine on
+	
+	# Disallow acces to wp-content dir 
+	RewriteRule wp/(.*)? - [F]
+	RewriteRule ^wordpress/(.*)? - [F]
+	RewriteRule wp-content/(.*)? - [F]
+	RewriteRule ^admin/?(.*)? - [F]
+	RewriteRule administrator/?(.*)? - [F]
+
+	# redirect author query string	
+	RewriteCond %{SCRIPT_FILENAME} !^(.*)wp-admin/(.*)
+	RewriteCond %{QUERY_STRING} author=(.*)?
+	RewriteRule ^.* /wishlist/? [R=301,L]
+	
+	# Supprimer les variables ?replytocom
+	RewriteCond %{QUERY_STRING} replytocom=?(.*)?
+	RewriteRule ^(.*)? /$1? [R=301,L]
+	
+	# Supprimer les variables ?__hs  venant de openclassrooms
+	RewriteCond %{QUERY_STRING} __hs?(.*)?
+	RewriteRule ^(.*)? /$1? [R=301,L]
+
+#	
+##
