@@ -27,15 +27,15 @@
 		# redirect author query string	
 		RewriteCond %{SCRIPT_FILENAME} !^(.*)wp-admin/(.*)
 		RewriteCond %{QUERY_STRING} author=(.*)?
-		RewriteRule ^.* /wishlist/? [R=301,L]
+		RewriteRule ^.* /wishlist/? [R=301,L,QSD]
 		
 		# Query ?replytocom
 		RewriteCond %{QUERY_STRING} replytocom=?(.*)?
-		RewriteRule ^(.*)? /$1? [R=301,L]
+		RewriteRule ^(.*)? /$1? [R=301,L,QSD]
 		
 		#  ?__hs ... come from openclassrooms
 		RewriteCond %{QUERY_STRING} __hs?(.*)?
-		RewriteRule ^(.*)? /$1? [R=301,L]
+		RewriteRule ^(.*)? /$1? [R=301,L,QSD]
 
 #	
 ##
