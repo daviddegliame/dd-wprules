@@ -1,33 +1,38 @@
 ##	ce sont mes regles perso, pensez a les adapter ...
 #	
 	RewriteEngine on
-	
-	# Disallow acces to wp dir or files
-	RewriteRule ^wp/(.*)? - [F]
-	RewriteRule ^wordpress/(.*)? - [F]
-	RewriteRule ^wp-content/(.*)? - [F]
-	
+		
+	# Disallow acces to (reel or fake) wp dir or files
+		
+		RewriteRule ^wp/(.*)? - [F]
+		RewriteRule ^wordpress/(.*)? - [F]
+		RewriteRule ^wp-content/(.*)? - [F]
+		
 	# Prevent somes bot scan
-	RewriteRule cgi-bin/?(.*)? - [F]
-	RewriteRule ^admin/?(.*)? - [F]
-	RewriteRule ^administrator/?(.*)? - [F]
-	RewriteRule ^user/?(.*)? - [F]
-	RewriteRule ^typo3/?(.*)? - [F]
-	RewriteRule ^manager/?(.*)? - [F]
-	RewriteRule ^uploadify/?(.*)? - [F]
-
-	# redirect author query string	
-	RewriteCond %{SCRIPT_FILENAME} !^(.*)wp-admin/(.*)
-	RewriteCond %{QUERY_STRING} author=(.*)?
-	RewriteRule ^.* /wishlist/? [R=301,L]
+		
+		RewriteRule cgi-bin/?(.*)? - [F]
+		RewriteRule ^admin/?(.*)? - [F]
+		RewriteRule ^administrator/?(.*)? - [F]
+		RewriteRule ^user/?(.*)? - [F]
+		RewriteRule ^typo3/?(.*)? - [F]
+		RewriteRule ^manager/?(.*)? - [F]
+		RewriteRule ^uploadify/?(.*)? - [F]
+		
 	
-	# Supprimer les variables ?replytocom
-	RewriteCond %{QUERY_STRING} replytocom=?(.*)?
-	RewriteRule ^(.*)? /$1? [R=301,L]
-	
-	# Supprimer les variables ?__hs  venant de openclassrooms
-	RewriteCond %{QUERY_STRING} __hs?(.*)?
-	RewriteRule ^(.*)? /$1? [R=301,L]
+	# query string	
+		
+		# redirect author query string	
+		RewriteCond %{SCRIPT_FILENAME} !^(.*)wp-admin/(.*)
+		RewriteCond %{QUERY_STRING} author=(.*)?
+		RewriteRule ^.* /wishlist/? [R=301,L]
+		
+		# Query ?replytocom
+		RewriteCond %{QUERY_STRING} replytocom=?(.*)?
+		RewriteRule ^(.*)? /$1? [R=301,L]
+		
+		#  ?__hs ... come from openclassrooms
+		RewriteCond %{QUERY_STRING} __hs?(.*)?
+		RewriteRule ^(.*)? /$1? [R=301,L]
 
 #	
 ##
