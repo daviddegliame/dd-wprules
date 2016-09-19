@@ -4,6 +4,9 @@
 		
 	# Disallow acces to (reel or fake) wp dir or files
 		
+		# carefull of temp. files and other similar copies
+		RewriteRule ^wp-config.php(.*)? - [F]
+		
 		RewriteRule ^wp/(.*)? - [F]
 		RewriteRule ^wordpress/(.*)? - [F]
 		RewriteRule ^wp-content/(.*)? - [F]
