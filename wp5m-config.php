@@ -5,7 +5,7 @@ define( 'WP_MEMORY_LIMIT'     , '128M' );
 define( 'WP_MAX_MEMORY_LIMIT' , '512M' ); // admin area
 
 // ** somes word that will define somes wp path
-define( 'WP5M_WPSITE'          , 'http://www.exemple.fr/' );
+define( 'WP5M_WPSITE'          , 'http://' . $_SERVER['SERVER_NAME'] . '/' );
 define( 'WP5M_WPCONTENT'       , 'wp-content' );
 define( 'WP5M_WPTHEME'         , 'themes' );
 define( 'WP5M_WPPLUGIN'        , 'plugins' );
