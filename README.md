@@ -1,2 +1,2 @@
 # dd-wprules
-juste somes apache rules for my wordPress .htacess
+juste somes files conf rules for my wordPress starter script …
